@@ -1,0 +1,92 @@
+function [retinal_response,params] = retinalContrastResponse(retinal_blur,params)
+% RetinalContrastresponse.m
+%
+% This function takes the retinal response that has been processed then
+% generates the retinal contrast response. Currently it is not taking into
+% effect spatial variation, it is only taking into effect the temporal
+% contrast changes in luminance - L.
+% 
+% Kevin Aquino,
+% Wenbin Shao.
+% 2014.
+
+<<<<<<< HEAD
+function [retinal_response,params] = retinalContrastResponse(retinal_blur,params,retinotopicTemplate,thmat,rmat)
+
+=======
+>>>>>>> afd919917a12513c4f38e7cdf9276052778acbd2
+
+% flag here to pass on that the images are already in Lab space.
+[method_contrast, params]= get_para(params, 'method_contrast', 'de94');
+contrastParams.method_contrast =method_contrast;
+
+% Generate the contrast response in time over the L*a*b channels
+contrast_cell = cellfun(@(x, y) im_contrast_gen(x, y, contrastParams), ...
+    retinal_blur(1:end-1), retinal_blur(2:end), 'UniformOutput', false);
+
+% Initialize the contrast matrix
+contrast_matrix =[zeros(size(contrast_cell{1})), contrast_cell];
+contrast_matrix =cell2mat_vs(contrast_matrix);
+
+% The luminance response is the first channel in L*a*b space.
+luminanceResponse = contrast_matrix;
+
+% Setting up the time vector is done here.
+stimulus_times = params.time_cell;
+
+t = params.t;
+
+% here find the corresponding indices (this does the upsampling)
+stim_indices =zeros(1, length(stimulus_times));
+for j=1:length(stimulus_times),
+    % here to find the indices
+    inds = find(abs(t-stimulus_times{j})<2*params.dt);
+    stim_indices(j) = inds(1);
+end
+
+% Once we have the times, the next stage is to generate the reduced space
+% for the retinal map to reflect what is happening at this stage, where
+% regions in the visual field converge onto co-ordinates on the retina.
+% 
+% In the future an improvement would be to specifiy a canonical retinal map
+% this needed when introducing more accurate physiology into the retina. 
+% 
+% Currentlty reducing this space to match the resolution in V1, can do
+% better at a later stage.
+
+% Can do better
+mappingTransformation = polarMappingCoordinateTransfer(retinotopicTemplate.eccentricityAreas.v1,retinotopicTemplate.polarAreas.v1,rmat,thmat);
+[imInd,tind] = meshgrid(1:size(luminanceResponse,1),1:length(stim_indices));
+
+luminanceResponse = c
+
+retinal_response = sparse(imInd,tind,luminanceResponse(:),size(luminanceResponse,1),length(t));
+
+
+
+% here will have to make a sparse matrix.
+% A better way is to get it down at this point.
+
+% [imInd,tind] = meshgrid(1:size(luminanceResponse,1),1:length(stim_indices));
+% retinal_response = sparse(imInd,tind,luminanceResponse(:),size(luminanceResponse,1),length(t));
+
+% this makes retinalResponse into a sparse matrix                          
+
+% zeta_full_brain = sparse(tind(:),atlasind(:),neuralActivity(:),length(params.t),size(msh.vertices,2));
+
+
+% here assign the points to neural activity, first create the vector
+
+% retinal_response = zeros(size(luminanceResponse,1),size(luminanceResponse,2),length(t));
+
+% now take the contrast response and assign a neural response for each
+% one
+
+% retinal_response(:,:,stim_indices) = luminanceResponse;
+
+% After this then apply a mean field-retinal response for this. Some kind
+% of neural firing model for this.
+% right now set to something simple - a step function.
+end
+
+

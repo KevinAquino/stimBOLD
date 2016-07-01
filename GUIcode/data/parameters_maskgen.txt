@@ -1,0 +1,6 @@
+% Don't rename this file. This file stores the information for binary mask image geneartion. Format:  fieldname| default numerical value 
+se1| 5
+se2| 5
+threshold_auto| 3.5
+threshold_mask| 1.5
+pixel| 25
