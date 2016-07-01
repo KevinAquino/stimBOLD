@@ -1,11 +1,11 @@
 # stimBOLD
-Kevin M. Aquino[1,2],
-Mark M. Schira[3],
-P.A. Robinson[2].
+Kevin M. Aquino [1,2],
+Mark M. Schira [3],
+P.A. Robinson [2].
 
 + [1] School of Physics, University of Sydney, Australia.
-+ [3] School of Physics & Astronomy, Sir Peter Mansfield Imaging Center, University of Nottingham, United Kingdom.
-+ [4] School of Psyhcology, University of Wollongong, Australia.
++ [2] Sir Peter Mansfield Imaging Center, School of Physics & Astronomy, University of Nottingham, United Kingdom.
++ [3] School of Psyhcology, University of Wollongong, Australia.
 
 The visual stimulus to BOLD response simulator. Open source software, license to come. If you would like to use this in your work, currently cite:
 
