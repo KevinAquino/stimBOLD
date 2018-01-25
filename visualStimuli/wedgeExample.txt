@@ -1,0 +1,4 @@
+0, 0.25, 0.5
+visualStimuli/wedges_for_Toolbox/Wedge_m01_p1.jpg
+visualStimuli/wedges_for_Toolbox/Wedge_m02_p1.jpg
+visualStimuli/wedges_for_Toolbox/Wedge_m03_p1.jpg

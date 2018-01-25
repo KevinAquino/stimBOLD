@@ -2,7 +2,7 @@
 % functions (make read-only in future).
 
 use_gui = 0;
-stimulus_file = 'wedgeTest.txt';
+stimulus_file = 'wedgeExample.txt';
 [path_mvibe_toolbox, name, ext]= fileparts(pwd);
 addpath(genpath(path_mvibe_toolbox));
 % 
