@@ -13,3 +13,12 @@ The visual stimulus to BOLD response simulator. Open source software, license to
 
 Publication of this will be available soon, but in the mean time cite the poster abstract.
 
+
+# Usage of the batch file.
+To run the batch version (command line version) in the stimBOLD folder run the following:
+
+[path_mvibe_toolbox, name, ext]= fileparts(pwd);
+addpath(genpath(path_mvibe_toolbox));
+batch_coreFunction_example;
+
+This will get you started! :) 
