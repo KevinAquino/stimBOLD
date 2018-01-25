@@ -107,3 +107,7 @@ mvibe_output.zeta = zeta;
 mvibe_output.visual_response = visual_stimulus;
 mvibe_output.msh = msh;
 mvibe_output.retinal_response = retinal_response;
+mvibe_output.visual_stimulus = visual_stimulus;
+
+% Here is just the visual sitimulus displayed. 
+interactive_visualization(mvibe_output);
