@@ -22,3 +22,6 @@ addpath(genpath(path_mvibe_toolbox));
 batch_coreFunction_example;
 
 This will get you started! :) 
+
+# Updates:
+Will start the final parts of this code ready for publication in a journal article soon!
